@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="stu" class="com.Egg.spring.collectionType.Stu">
+        <!--        注入数组-->
+        <property name="courses">
+            <array>
+                <value>语文</value>
+                <value>数学</value>
+                <value>C艹</value>
+            </array>
+        </property>
+        <!--        注入list-->
+        <property name="list">
+            <list>
+                <value>卢小喷</value>
+                <value>喷喷</value>
+            </list>
+        </property>
+        <!--        注入map-->
+        <property name="maps">
+            <map>
+                <entry key="Sun" value="rest"></entry>
+                <entry key="Mon" value="School"></entry>
+            </map>
+        </property>
+        <!--        注入set-->
+        <property name="sets">
+            <set>
+                <value>上班</value>
+                <value>考研</value>
+            </set>
+        </property>
+<!--        注入list，但值是Course对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+                <ref bean="course3"></ref>
+            </list>
+        </property>
+    </bean>
+
+<!--    创建多个Course对象-->
+    <bean id="course1" class="com.Egg.spring.collectionType.Course">
+        <property name="cname" value="C艹"></property>
+    </bean>
+    <bean id="course2" class="com.Egg.spring.collectionType.Course">
+        <property name="cname" value="Java"></property>
+    </bean>
+    <bean id="course3" class="com.Egg.spring.collectionType.Course">
+        <property name="cname" value="Spring"></property>
+    </bean>
+</beans>

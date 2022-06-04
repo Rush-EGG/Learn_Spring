@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--级联赋值-2-->
+    <bean id="emp" class="com.Egg.spring.bean.Emp">
+        <!--设置ename和gender-->
+        <property name="ename" value="Tibo"></property>
+        <property name="gender" value="male"></property>
+
+        <!--用外部bean直接设置所属dept的dname-->
+        <property name="dept" ref="dept"></property>
+        <!--需要在emp类内有对dept的get方法，否则获取不到对象-->
+        <property name="dept.dname" value="喷喷部"></property>
+    </bean>
+
+    <bean id="dept" class="com.Egg.spring.bean.Dept"></bean>
+
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="order" class="com.Egg.spring.durationOfBean.Order" init-method="initMethod"
+          destroy-method="destroyMethod">
+        <property name="oname" value="10086"></property>
+    </bean>
+
+    <!--配置后置处理器-->
+    <!--只要配置了，就会为这个xml文件中的所有bean对象设置后置处理器-->
+    <bean id="mybeanpost" class="com.Egg.spring.durationOfBean.myBeanPost"></bean>
+</beans>

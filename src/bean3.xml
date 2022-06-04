@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="emp" class="com.Egg.spring.bean.Emp">
+        <!--设置ename和gender-->
+        <property name="ename" value="Tibo"></property>
+        <property name="gender" value="male"></property>
+
+        <!--用内部bean设置所属dept-->
+        <property name="dept">
+            <bean id="dept" class="com.Egg.spring.bean.Dept">
+                <property name="dname" value="IT"></property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
