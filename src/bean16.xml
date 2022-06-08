@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--    创建两个类的配置文件-->
+    <bean id="book" class="com.Egg.spring.aop_xml.Book"></bean>
+    <bean id="bookProxy" class="com.Egg.spring.aop_xml.BookProxy"></bean>
+
+<!--    配置AOP增强-->
+    <aop:config>
+<!--        配置切入点-->
+        <aop:pointcut id="p" expression="execution(* com.Egg.spring.aop_xml.Book.buy(..))"/>
+
+<!--        配置切面-->
+        <aop:aspect ref="bookProxy">
+<!--            指定增强在哪一个方法上-->
+            <aop:before method="before" pointcut-ref="p"></aop:before> <!--意思就是把before方法作用在p上-->
+        </aop:aspect>
+    </aop:config>
+</beans>
